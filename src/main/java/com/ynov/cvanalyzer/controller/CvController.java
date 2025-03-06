@@ -1,37 +1,48 @@
 package com.ynov.cvanalyzer.controller;
 
+import com.ynov.cvanalyzer.dto.CvDto;
+import com.ynov.cvanalyzer.dto.CvsDto;
 import com.ynov.cvanalyzer.dto.OffreDto;
+import com.ynov.cvanalyzer.entity.Cv;
 import com.ynov.cvanalyzer.entity.Offre;
+import com.ynov.cvanalyzer.service.CvService;
 import com.ynov.cvanalyzer.service.ReadingService;
-import com.ynov.cvanalyzer.service.OffreService;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import org.springframework.ai.chat.messages.Message;
 import org.springframework.ai.chat.messages.SystemMessage;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.ollama.OllamaChatModel;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("offre")
+@RequestMapping("cv")
 @RequiredArgsConstructor
-public class OffreController {
-    private final OffreService offreService;
-    private final ReadingService offreReadingService;
-    private final OllamaChatModel chatModel;
-    @PostMapping()
-    public String askDoraAQuestion(@RequestBody OffreDto offreDto) {
-        Offre savedOffre = offreService.save(offreDto);
-        String question = savedOffre.toString();
+public class CvController {
+    private final CvService cvService;
 
-         String prompt = offreReadingService.readInternalFileAsString("prompts/promptConsignes.txt") ;
+    private final ReadingService cvreadingService;
+    private final OllamaChatModel chatModel;
+
+    @PostMapping()
+    public String CompareCvs(@RequestBody CvsDto cvsDto) {
+        Iterable<Cv> cvssaved = cvService.saveAll(cvsDto.cvsDto());
+        String question = cvssaved.toString();
+
+        String prompt = cvreadingService.readInternalFileAsString("prompts/promptCompareCvs.txt") ;
 
         List<Message> messages = new ArrayList<>();
         messages.add(new SystemMessage("<start_of_turn>" + prompt + "<end_of_turn>")) ;
@@ -47,9 +58,8 @@ public class OffreController {
 
     }
 
-
 //    @PostMapping()
-//    public Offre offre(@RequestBody OffreDto offreDto){
-//             return  offreService.save(offreDto);
+//    public Cv Cv(@RequestBody CvDto cvDto){
+//        return cvService.save(cvDto);
 //    }
 }

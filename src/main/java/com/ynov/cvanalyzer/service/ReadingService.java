@@ -16,13 +16,13 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class OffreReadingService {
+public class ReadingService {
     private final ResourceLoader resourceLoader;
     private final ObjectMapper objectMapper;
 
 
     @Autowired
-    public OffreReadingService(@Qualifier("webApplicationContext")ResourceLoader resourceLoader, ObjectMapper objectMapper) {
+    public ReadingService(@Qualifier("webApplicationContext")ResourceLoader resourceLoader, ObjectMapper objectMapper) {
         this.resourceLoader = resourceLoader;
         this.objectMapper = objectMapper;
     }

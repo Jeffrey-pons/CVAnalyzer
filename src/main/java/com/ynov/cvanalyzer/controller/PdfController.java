@@ -15,6 +15,12 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/pdf")
 public class PdfController {
+    public static String removeNewLines(String text) {
+        if (text == null) {
+            return null;
+        }
+        return text.replaceAll("[\\n\\r]", "");
+    }
     @Autowired
     private PdfService pdfService;
 
@@ -30,7 +36,7 @@ public class PdfController {
             String text = pdfService.extractTextFromPdf(tempFile.getAbsolutePath());
 
             // Retourne le texte extrait
-            return ResponseEntity.ok(text);
+            return ResponseEntity.ok(removeNewLines(text));
         } catch (IOException e) {
             return ResponseEntity.status(500).body("Erreur lors de l'extraction du texte : " + e.getMessage());
         }
