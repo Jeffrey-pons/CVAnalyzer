@@ -32,7 +32,7 @@ public class OffreController {
         Offre savedOffre = offreService.save(offreDto);
         String question = savedOffre.toString();
 
-        String prompt = offreReadingService.readInternalFileAsString("prompts/promptDora.txt") ;
+         String prompt = offreReadingService.readInternalFileAsString("prompts/promptConsignes.txt") ;
 
         List<Message> messages = new ArrayList<>();
         messages.add(new SystemMessage("<start_of_turn>" + prompt + "<end_of_turn>")) ;

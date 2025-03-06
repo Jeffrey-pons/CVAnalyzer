@@ -1,10 +1,10 @@
 package com.ynov.cvanalyzer.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
+
+import java.sql.Clob;
 
 @Entity
 @Data
@@ -14,5 +14,7 @@ public class Offre {
     @GeneratedValue
     private int id;
     private String title;
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String description;
 }
