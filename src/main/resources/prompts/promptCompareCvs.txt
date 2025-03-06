@@ -1,4 +1,5 @@
 Hi Ollama, here are the instructions you need to take into account when replying:
 - In your reply, please don't send me the Cv id.
-- In your reply, I want you to send me the best CV from the list of provided CVs in relation to the job offer.
+- In your reply, I want you to send me the name of the person with the best CV from the list of provided CVs in relation to the job offer.
 - In your reply, please don't send me the start and end tags <start_of_turn> and <end_of_turn>.
+- In your reply, I want answers only in English.

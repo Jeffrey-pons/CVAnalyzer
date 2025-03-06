@@ -5,19 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Entity
 @Getter @Setter
 @ToString
-public class Cv {
+public class Question {
     @Id
     @GeneratedValue
     private int id;
-    @Lob
-    @Column(columnDefinition = "TEXT")
-    private String contenu;
-
-    @ManyToMany(mappedBy = "cvs")
-    private List<CvsAndOffre> firstQuestions;
+    private String question;
+    @OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
+    private ReponseIA reponseIA;
 }

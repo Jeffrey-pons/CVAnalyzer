@@ -27,7 +27,7 @@ public class OffreController {
     private final ReadingService offreReadingService;
     private final OllamaChatModel chatModel;
     @PostMapping()
-    public String askDoraAQuestion(@RequestBody OffreDto offreDto) {
+    public String SendOffreToIA(@RequestBody OffreDto offreDto) {
         Offre savedOffre = offreService.save(offreDto);
         String question = savedOffre.toString();
 
@@ -47,9 +47,4 @@ public class OffreController {
 
     }
 
-
-//    @PostMapping()
-//    public Offre offre(@RequestBody OffreDto offreDto){
-//             return  offreService.save(offreDto);
-//    }
 }
