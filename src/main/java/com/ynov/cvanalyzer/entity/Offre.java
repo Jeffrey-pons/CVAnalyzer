@@ -13,7 +13,6 @@ public class Offre {
     @Id
     @GeneratedValue
     private int id;
-    private String title;
     @Lob
     @Column(columnDefinition = "TEXT")
     private String description;

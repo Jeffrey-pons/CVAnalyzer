@@ -18,7 +18,6 @@ public class OffreService {
 
         public Offre save(OffreDto offreDto){
                 Offre offre = new Offre();
-                offre.setTitle(offreDto.title());
                 offre.setDescription(offreDto.description());
                 return offreRepository.save(offre);
         }
