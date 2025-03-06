@@ -1,11 +1,13 @@
 package com.ynov.cvanalyzer.controller;
 
+import com.ynov.cvanalyzer.dto.CmpCvsOffreDto;
 import com.ynov.cvanalyzer.dto.CvDto;
 import com.ynov.cvanalyzer.dto.CvsDto;
 import com.ynov.cvanalyzer.dto.OffreDto;
 import com.ynov.cvanalyzer.entity.Cv;
 import com.ynov.cvanalyzer.entity.Offre;
 import com.ynov.cvanalyzer.service.CvService;
+import com.ynov.cvanalyzer.service.OffreService;
 import com.ynov.cvanalyzer.service.ReadingService;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
@@ -33,14 +35,20 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CvController {
     private final CvService cvService;
-
+    private final OffreService offreService;
     private final ReadingService cvreadingService;
     private final OllamaChatModel chatModel;
 
     @PostMapping()
-    public String CompareCvs(@RequestBody CvsDto cvsDto) {
-        Iterable<Cv> cvssaved = cvService.saveAll(cvsDto.cvsDto());
-        String question = cvssaved.toString();
+    public String CompareCvs(@RequestBody CmpCvsOffreDto cvsOffreDto) {
+        //save l'offre dans la base de données
+        Offre savedOffre = offreService.save(cvsOffreDto.offreDesc());
+
+        //save la liste des cv dans la base de données
+        Iterable<Cv> cvssaved = cvService.saveAll(cvsOffreDto.cvsDto());
+
+        //concaténation de l'offre avec les cv
+        String question = cvssaved.toString() + savedOffre.toString();
 
         String prompt = cvreadingService.readInternalFileAsString("prompts/promptCompareCvs.txt") ;
 
