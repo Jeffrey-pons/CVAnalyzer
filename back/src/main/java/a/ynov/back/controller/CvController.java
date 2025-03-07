@@ -27,7 +27,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CvController {
     private final CvService cvService;
-    private final OffreService offreService;
+    private final OfferService offreService;
     private final ReadingService cvreadingService;
     private final ResponseService reponseService;
     private final CvsAndOfferService firstQstService;
