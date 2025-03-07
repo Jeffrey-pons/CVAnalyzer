@@ -15,7 +15,6 @@ public class Cv {
     @GeneratedValue
     private int id;
     @Lob
-    @Column(columnDefinition = "TEXT")
     private String contenu;
 
     @ManyToMany(mappedBy = "cvs")
