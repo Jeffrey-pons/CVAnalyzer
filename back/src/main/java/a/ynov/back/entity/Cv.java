@@ -20,4 +20,6 @@ public class Cv {
 
     @ManyToMany(mappedBy = "cvs")
     private List<CvsAndOffer> firstQuestions;
+
+
 }
