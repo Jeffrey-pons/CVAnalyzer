@@ -14,6 +14,5 @@ public class Offre {
     @GeneratedValue
     private int id;
     @Lob
-    @Column(columnDefinition = "TEXT")
     private String description;
 }
