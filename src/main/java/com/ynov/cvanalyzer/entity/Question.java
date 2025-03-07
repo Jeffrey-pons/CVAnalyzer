@@ -14,5 +14,5 @@ public class Question {
     private int id;
     private String question;
     @OneToOne(mappedBy = "question", cascade = CascadeType.ALL)
-    private ReponseIA reponseIA;
+    private ResponseIA responseIA;
 }

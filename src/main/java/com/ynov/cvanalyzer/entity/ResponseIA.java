@@ -8,7 +8,7 @@ import lombok.ToString;
 @Entity
 @Getter @Setter
 @ToString
-public class ReponseIA {
+public class ResponseIA {
     @Id
     @GeneratedValue
     private int id;
@@ -16,7 +16,7 @@ public class ReponseIA {
     private String message;
     @OneToOne
     @JoinColumn(name = "first_question_id", unique = true)
-    private CvsAndOffre firstQuestion;
+    private CvsAndOffer firstQuestion;
 
     @OneToOne
     @JoinColumn(name = "question_id", unique = true)

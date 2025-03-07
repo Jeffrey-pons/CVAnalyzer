@@ -10,13 +10,13 @@ import java.util.List;
 @Entity
 @Getter @Setter
 @ToString
-public class CvsAndOffre {
+public class CvsAndOffer {
     @Id
     @GeneratedValue
     private int id;
     @ManyToOne
     @JoinColumn(name = "offre_id")
-    private Offre offre;
+    private Offer offre;
     @ManyToMany
     @JoinTable(
             name = "first_question_cv",
@@ -26,6 +26,6 @@ public class CvsAndOffre {
     private List<Cv> cvs;
 
     @OneToOne(mappedBy = "firstQuestion", cascade = CascadeType.ALL)
-    private ReponseIA reponseIA;
+    private ResponseIA responseIA;
 
 }
