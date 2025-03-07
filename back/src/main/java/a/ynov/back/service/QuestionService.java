@@ -1,16 +1,13 @@
-package a.ynov.back.service;
+package com.ynov.cvanalyzer.service;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.ynov.cvanalyzer.repository.QuestionRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import a.ynov.back.repository.QuestionRepository;
 
 @Service
-@Getter
-@Setter
+@RequiredArgsConstructor
 public class QuestionService {
     private QuestionRepository questionRepository;
-
     public QuestionService(QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
     }

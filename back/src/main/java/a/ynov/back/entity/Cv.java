@@ -19,5 +19,5 @@ public class Cv {
     private String contenu;
 
     @ManyToMany(mappedBy = "cvs")
-    private List<CvsAndOffre> firstQuestions;
+    private List<CvsAndOffer> firstQuestions;
 }
