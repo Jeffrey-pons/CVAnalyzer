@@ -5,7 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225eecbd-7a07-4457-a76f-f0933324fd8b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/CvsAndOffreRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/CvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/CvController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/OffreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/OffreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/PdfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/PdfController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CmpCvsOfferDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CmpCvsOfferDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CmpCvsOffreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CmpCvsOffreDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CvsAndOfferDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CvsAndOfferDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CvsAndOffreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CvsAndOffreDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/OfferDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/OfferDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/ReponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/ReponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/ResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/CvsAndOfferRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/OfferRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/OfferRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/ReponseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/ReponseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/ResponseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/ResponseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ChatIAService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ChatIAService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvsAndOfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvsAndOfferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/OfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/OfferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/OffreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/OffreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/PdfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/PdfService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ReadingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ReadingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ResponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ResponseService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +39,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
         <option value="Record" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -44,32 +68,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CvanalyzerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BackApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.CvanalyzerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Nada/Desktop/Ynov_M2/CVAnalyzer/back&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CvanalyzerApplication.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.BackApplication.executor": "Run",
+    "Spring Boot.CvanalyzerApplication.executor": "Run",
+    "git-widget-placeholder": "mergeback",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Nada/Desktop/Ynov_M2/CVAnalyzer/back",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Nada\Desktop\Ynov_M2\CVAnalyzer\back" />
@@ -89,6 +113,43 @@
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="CVAnalyzer" />
       <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
     <configuration name="BackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -111,6 +172,55 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.BackApplication" />
@@ -126,6 +236,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="225eecbd-7a07-4457-a76f-f0933324fd8b" name="Changes" comment="" />

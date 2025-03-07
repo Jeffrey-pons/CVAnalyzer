@@ -4,12 +4,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
 
-import java.sql.Clob;
-
 @Entity
 @Data
 @ToString
-public class Offre {
+public class Offer {
     @Id
     @GeneratedValue
     private int id;
