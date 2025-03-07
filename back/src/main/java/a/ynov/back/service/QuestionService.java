@@ -1,6 +1,6 @@
-package com.ynov.cvanalyzer.service;
+package a.ynov.back.service;
 
-import com.ynov.cvanalyzer.repository.QuestionRepository;
+import a.ynov.back.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

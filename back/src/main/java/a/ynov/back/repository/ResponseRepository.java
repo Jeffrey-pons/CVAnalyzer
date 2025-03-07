@@ -1,6 +1,6 @@
-package com.ynov.cvanalyzer.repository;
+package a.ynov.back.repository;
 
-import com.ynov.cvanalyzer.entity.ResponseIA;
+import a.ynov.back.entity.ResponseIA;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

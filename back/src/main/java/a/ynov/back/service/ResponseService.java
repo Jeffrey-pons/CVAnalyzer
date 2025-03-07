@@ -1,8 +1,9 @@
-package com.ynov.cvanalyzer.service;
+package a.ynov.back.service;
 
-import com.ynov.cvanalyzer.dto.ResponseDto;
-import com.ynov.cvanalyzer.entity.ResponseIA;
-import com.ynov.cvanalyzer.repository.ResponseRepository;
+
+import a.ynov.back.dto.ResponseDto;
+import a.ynov.back.entity.ResponseIA;
+import a.ynov.back.repository.ResponseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

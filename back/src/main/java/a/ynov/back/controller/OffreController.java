@@ -1,10 +1,11 @@
-package com.ynov.cvanalyzer.controller;
+package a.ynov.back.controller;
 
-import com.ynov.cvanalyzer.dto.OfferDto;
-import com.ynov.cvanalyzer.entity.Offer;
-import com.ynov.cvanalyzer.service.ChatIAService;
-import com.ynov.cvanalyzer.service.ReadingService;
-import com.ynov.cvanalyzer.service.OfferService;
+
+import a.ynov.back.dto.OfferDto;
+import a.ynov.back.entity.Offer;
+import a.ynov.back.service.ChatIAService;
+import a.ynov.back.service.OfferService;
+import a.ynov.back.service.ReadingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.messages.Message;
 import org.springframework.ai.chat.messages.SystemMessage;

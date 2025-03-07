@@ -1,6 +1,6 @@
-package com.ynov.cvanalyzer.controller;
+package a.ynov.back.controller;
 
-import com.ynov.cvanalyzer.service.PdfService;
+import a.ynov.back.service.PdfService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

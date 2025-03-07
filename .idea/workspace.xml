@@ -5,44 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="225eecbd-7a07-4457-a76f-f0933324fd8b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/CvsAndOffreRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/CvController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/CvController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/OffreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/OffreController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/PdfController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/PdfController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CmpCvsOfferDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CmpCvsOfferDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CmpCvsOffreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CmpCvsOffreDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CvsAndOfferDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CvsAndOfferDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CvsAndOffreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/CvsAndOffreDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/OfferDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/OfferDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/OffreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/OffreDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/ReponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/ReponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/dto/ResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/Cv.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/Cv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/CvsAndOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/CvsAndOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/CvsAndOffre.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/CvsAndOffre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/Offer.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/Offer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/Offre.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/Offre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/ReponseIA.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/ReponseIA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/ResponseIA.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/entity/ResponseIA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/CvsAndOfferRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/CvsAndOfferRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/CvsAndOffreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/CvsAndOffreRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/CvsAndOfferRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/OfferRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/OfferRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/OffreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/OffreRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/ReponseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/ReponseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/ResponseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/repository/ResponseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ChatIAService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ChatIAService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvsAndOfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvsAndOfferService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvsAndOffreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/CvsAndOffreService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/OfferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/OfferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/OffreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/OffreService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/PdfService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/PdfService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/QuestionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ReadingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ReadingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ReponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ReponseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ResponseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/service/ResponseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/prompts/promptCompareCvs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/prompts/promptCompareCvs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/prompts/promptConsignes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/prompts/promptConsignes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/entity/CvsAndOffre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/entity/CvsAndOffre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/entity/Offre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/entity/Offre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/entity/ReponseIA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/entity/ReponseIA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/repository/CvsAndOffreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/repository/CvsAndOffreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/repository/OffreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ynov/cvanalyzer/repository/OffreRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,9 +39,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
         <option value="Record" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -92,7 +79,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.BackApplication.executor": "Run",
     "Spring Boot.CvanalyzerApplication.executor": "Run",
-    "git-widget-placeholder": "Merging mergeback",
+    "git-widget-placeholder": "mergeback",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Nada/Desktop/Ynov_M2/CVAnalyzer/back",
     "node.js.detected.package.eslint": "true",
@@ -128,6 +115,43 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="BackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="back" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="a.ynov.back.BackApplication" />
@@ -148,6 +172,55 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="back" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.BackApplication" />
@@ -163,6 +236,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="225eecbd-7a07-4457-a76f-f0933324fd8b" name="Changes" comment="" />

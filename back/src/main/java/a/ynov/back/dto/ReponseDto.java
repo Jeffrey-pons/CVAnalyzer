@@ -1,7 +1,7 @@
 package a.ynov.back.dto;
 
 
-import a.ynov.back.entity.CvsAndOffre;
+import a.ynov.back.entity.CvsAndOffer;
 
-public record ReponseDto(String message, CvsAndOffre firstQuestion) {
+public record ReponseDto(String message, CvsAndOffer firstQuestion) {
 }

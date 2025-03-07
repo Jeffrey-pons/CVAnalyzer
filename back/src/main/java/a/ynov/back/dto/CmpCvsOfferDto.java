@@ -1,4 +1,4 @@
-package com.ynov.cvanalyzer.dto;
+package a.ynov.back.dto;
 
 import java.util.List;
 

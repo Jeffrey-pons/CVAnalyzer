@@ -1,8 +1,9 @@
-package com.ynov.cvanalyzer.service;
+package a.ynov.back.service;
 
-import com.ynov.cvanalyzer.dto.OfferDto;
-import com.ynov.cvanalyzer.entity.Offer;
-import com.ynov.cvanalyzer.repository.OfferRepository;
+
+import a.ynov.back.dto.OfferDto;
+import a.ynov.back.entity.Offer;
+import a.ynov.back.repository.OfferRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

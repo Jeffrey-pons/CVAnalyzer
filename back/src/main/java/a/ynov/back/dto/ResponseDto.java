@@ -1,6 +1,7 @@
-package com.ynov.cvanalyzer.dto;
+package a.ynov.back.dto;
 
-import com.ynov.cvanalyzer.entity.CvsAndOffer;
+
+import a.ynov.back.entity.CvsAndOffer;
 
 public record ResponseDto(String message, CvsAndOffer firstQuestion) {
 }

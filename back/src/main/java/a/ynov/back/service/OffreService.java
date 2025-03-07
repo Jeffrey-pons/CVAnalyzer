@@ -1,25 +1,26 @@
 package a.ynov.back.service;
 
 
+import a.ynov.back.dto.OfferDto;
+import a.ynov.back.entity.Offer;
+import a.ynov.back.repository.OfferRepository;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Service;
-import a.ynov.back.dto.OffreDto;
-import a.ynov.back.entity.Offre;
-import a.ynov.back.repository.OffreRepository;
+
 
 @Service
 @Getter
 @Setter
 public class OffreService {
-    public OffreRepository offreRepository;
+    public OfferRepository offreRepository;
 
-    public OffreService(OffreRepository offreRepository) {
+    public OffreService(OfferRepository offreRepository) {
         this.offreRepository = offreRepository;
     }
 
-    public Offre save(OffreDto offreDto) {
-        Offre offre = new Offre();
+    public Offer save(OfferDto offreDto) {
+        Offer offre = new Offer();
         offre.setDescription(offreDto.description());
         return offreRepository.save(offre);
     }

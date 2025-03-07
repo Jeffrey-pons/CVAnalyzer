@@ -1,9 +1,9 @@
-package com.ynov.cvanalyzer.service;
+package a.ynov.back.service;
 
-import com.ynov.cvanalyzer.dto.CvsAndOfferDto;
-import com.ynov.cvanalyzer.entity.Cv;
-import com.ynov.cvanalyzer.entity.CvsAndOffer;
-import com.ynov.cvanalyzer.repository.CvsAndOfferRepository;
+import a.ynov.back.dto.CvsAndOfferDto;
+import a.ynov.back.entity.Cv;
+import a.ynov.back.entity.CvsAndOffer;
+import a.ynov.back.repository.CvsAndOffreRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CvsAndOfferService {
 
-    private final CvsAndOfferRepository firstQstRepository;
+    private final CvsAndOffreRepository  firstQstRepository;
 
     /**
      * Sauvegarde la première question contenant l'offre et les CV.

@@ -1,7 +1,8 @@
-package com.ynov.cvanalyzer.dto;
+package a.ynov.back.dto;
 
-import com.ynov.cvanalyzer.entity.Cv;
-import com.ynov.cvanalyzer.entity.Offer;
+
+import a.ynov.back.entity.Cv;
+import a.ynov.back.entity.Offer;
 
 public record CvsAndOfferDto(Offer offre, Iterable<Cv> cvs) {
 }

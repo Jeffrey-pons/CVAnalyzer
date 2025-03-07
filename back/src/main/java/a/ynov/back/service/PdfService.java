@@ -1,4 +1,4 @@
-package com.ynov.cvanalyzer.service;
+package a.ynov.back.service;
 
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;

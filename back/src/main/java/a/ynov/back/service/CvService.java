@@ -1,8 +1,9 @@
-package com.ynov.cvanalyzer.service;
+package a.ynov.back.service;
 
-import com.ynov.cvanalyzer.dto.CvDto;
-import com.ynov.cvanalyzer.entity.Cv;
-import com.ynov.cvanalyzer.repository.CvRepository;
+
+import a.ynov.back.dto.CvDto;
+import a.ynov.back.entity.Cv;
+import a.ynov.back.repository.CvRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

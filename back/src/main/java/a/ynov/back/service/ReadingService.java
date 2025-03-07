@@ -1,4 +1,4 @@
-package com.ynov.cvanalyzer.service;
+package a.ynov.back.service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

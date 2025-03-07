@@ -1,4 +1,4 @@
-package com.ynov.cvanalyzer.service;
+package a.ynov.back.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

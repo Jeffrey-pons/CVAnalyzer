@@ -1,4 +1,4 @@
-package com.ynov.cvanalyzer.dto;
+package a.ynov.back.dto;
 
 
 public record OfferDto(String description) {
