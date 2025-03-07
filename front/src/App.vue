@@ -1,15 +1,12 @@
 <template>
-  <HelloWorld msg="Welcome to Your Vue.js App" />
   <UploadPdf />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import UploadPdf from "./components/UploadPdf.vue";
 export default {
   name: "App",
   components: {
-    HelloWorld,
     UploadPdf,
   },
 };

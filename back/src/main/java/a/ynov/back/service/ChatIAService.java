@@ -2,6 +2,7 @@ package a.ynov.back.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.ai.chat.messages.AbstractMessage;
 import org.springframework.ai.chat.messages.Message;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -17,10 +18,10 @@ import java.util.List;
 public class ChatIAService {
     private final OllamaChatModel chatModel;
 
-    public String sendMessageToIA(List<Message> messages) {
+    public String sendMessageToIA(List<AbstractMessage> messages) {
         try {
 
-            Prompt promptToSend = new Prompt(messages);
+            Prompt promptToSend = new Prompt(String.valueOf(messages));
             Flux<ChatResponse> chatResponses = chatModel.stream(promptToSend);
 
             // Récupération des réponses de l'IA
