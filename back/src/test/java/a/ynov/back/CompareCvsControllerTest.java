@@ -112,14 +112,25 @@ class CompareCvsControllerTest {
 
         MockMultipartFile file = new MockMultipartFile("files", "cv.pdf", "application/pdf", "mock content".getBytes());
 
-        mockMvc.perform(MockMvcRequestBuilders.multipart("/compare-cvs")
+        when(offerService.save(any(OfferDto.class))).thenReturn(mockOffer);
+        when(cvService.saveAll(anyList())).thenReturn(mockCvs);
+        when(cvsAndOfferService.save(any(CvsAndOfferDto.class))).thenReturn(mockCvsAndOffer);
+        when(readingService.readInternalFileAsString(anyString())).thenReturn("IA Prompt");
+        when(chatIAService.sendMessageToIA(anyList())).thenReturn("IA Response");
+
+        mockMvc.perform(MockMvcRequestBuilders.multipart("/cv/compare-cvs")
                         .file(file)
                         .param("jobOffer", "Java Developer"))
                 .andExpect(status().isOk());
+
+        verify(offerService, times(1)).save(any(OfferDto.class));
+        verify(cvService, times(1)).saveAll(anyList());
+        verify(chatIAService, times(1)).sendMessageToIA(anyList());
     }
 
     @Test
     void compareCvs_ShouldHandleIAError() throws IOException {
+        when(offerService.save(any(OfferDto.class))).thenReturn(mockOffer);
         when(chatIAService.sendMessageToIA(anyList())).thenThrow(new RuntimeException("IA service error"));
 
         Exception exception = assertThrows(RuntimeException.class, () ->
