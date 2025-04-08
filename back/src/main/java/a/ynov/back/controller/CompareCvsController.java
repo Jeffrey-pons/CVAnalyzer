@@ -12,11 +12,13 @@ import org.springframework.ai.chat.messages.AbstractMessage;
 import org.springframework.ai.chat.messages.SystemMessage;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.data.jpa.repository.JpaContext;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8080", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST})
@@ -66,4 +68,31 @@ public class CompareCvsController {
 
         return message;
     }
+
+    @PostMapping("/follow-up")
+    public ResponseEntity<String> followUpConversation(@RequestBody Map<String, String> request) {
+        String userMessage = request.get("message");
+
+        if (userMessage == null || userMessage.isBlank()) {
+            return ResponseEntity.badRequest().body("❌ La question ne peut pas être vide.");
+        }
+
+        // On peut optionnellement ajouter un message système pour encadrer le contexte
+        String prompt = cvreadingService.readInternalFileAsString("prompts/promptChatbot.txt");
+
+        // Crée les messages pour l'IA
+        List<AbstractMessage> messages = List.of(
+                new SystemMessage("<start_of_turn>" + prompt + "<end_of_turn>"),
+                new UserMessage("<start_of_turn>" + userMessage + "<end_of_turn>")
+        );
+
+        // Appelle l’IA
+        String aiResponse = chatIAService.sendMessageToIA(messages);
+
+        return ResponseEntity.ok(aiResponse);
+    }
+
+
+
+
 }
