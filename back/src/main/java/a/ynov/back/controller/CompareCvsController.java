@@ -5,7 +5,10 @@ import a.ynov.back.dto.OfferDto;
 import a.ynov.back.dto.ResponseDto;
 import a.ynov.back.entity.Cv;
 import a.ynov.back.entity.CvsAndOffer;
+import a.ynov.back.entity.Message;
 import a.ynov.back.entity.Offer;
+import a.ynov.back.repository.ConversationRepository;
+import a.ynov.back.repository.MessageRepository;
 import a.ynov.back.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.messages.AbstractMessage;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +36,8 @@ public class CompareCvsController {
     private final CvsAndOfferService firstQstService;
     private final ChatIAService chatIAService;
     private final JpaContext jpaContext;
+    private final ConversationRepository conversationRepo;
+    private final MessageRepository messageRepo;
 
     @PostMapping("/compare-cvs")
     public String compareCvs(
@@ -92,6 +98,32 @@ public class CompareCvsController {
         return ResponseEntity.ok(aiResponse);
     }
 
+    @GetMapping("/conversations")
+    public ResponseEntity<List<Map<String, Object>>> getAllConversations() {
+        List<Map<String, Object>> result = conversationRepo.findAll().stream().map(conv -> {
+            Map<String, Object> map = new HashMap<>();
+            map.put("id", conv.getId());
+            map.put("title", conv.getTitle());
+            map.put("date", conv.getCreatedAt());
+            return map;
+        }).toList();
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/conversations/{id}")
+    public ResponseEntity<Map<String, Object>> getConversation(@PathVariable Long id) {
+        List<Message> msgs = messageRepo.findByConversationIdOrderByTimestampAsc(id);
+        List<Map<String, String>> messages = msgs.stream().map(msg -> {
+            Map<String, String> map = new HashMap<>();
+            map.put("sender", msg.getSender());
+            map.put("text", msg.getContent());
+            return map;
+        }).toList();
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("messages", messages);
+        return ResponseEntity.ok(response);
+    }
 
 
 
