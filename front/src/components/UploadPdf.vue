@@ -19,7 +19,7 @@
     <div class="main-container">
       <!-- Formulaire -->
       <div class="upload-container">
-        <h2>Upload Files & Text</h2>
+        <h2>Analyse plusieurs CV en fonction d'une offre d'emploi</h2>
 
         <div class="text-section">
           <h3>Offre d'emploi :</h3>
