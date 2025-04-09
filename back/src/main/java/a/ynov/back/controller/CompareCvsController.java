@@ -45,6 +45,11 @@ public class CompareCvsController {
             @RequestParam("files") List<MultipartFile> files,
             @RequestParam(value = "systemPrompt", required = false) String systemPrompt) {
 
+
+        if (files.isEmpty() || files.stream().anyMatch(file -> file.isEmpty())) {
+            throw new IllegalArgumentException("Les fichiers envoyés sont vides.");
+        }
+
         try {
             // Sauvegarder l'offre d'emploi dans la base de données
             OfferDto offerDto = new OfferDto(jobOffer);

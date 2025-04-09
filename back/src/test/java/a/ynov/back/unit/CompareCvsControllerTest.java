@@ -1,4 +1,4 @@
-package a.ynov.back;
+package a.ynov.back.unit;
 
 import a.ynov.back.controller.CompareCvsController;
 import a.ynov.back.dto.CvsAndOfferDto;
@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
