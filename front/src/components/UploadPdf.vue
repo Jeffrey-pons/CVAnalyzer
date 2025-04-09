@@ -56,7 +56,10 @@
 
       <!-- Chatbot -->
       <div class="chat-box" v-if="showChat">
-        <h2>💬 Conversation</h2>
+        <div class="chat-header">
+    <h2>💬 Conversation</h2>
+    <button class="close-chat" @click="showChat = false" title="Fermer">❌</button>
+  </div>
         <div class="chat-messages">
           <div v-for="(msg, index) in messages" :key="index" :class="['message', msg.sender]">
             <strong v-if="msg.sender === 'user'">👤 Vous:</strong>
@@ -366,6 +369,7 @@ button {
  
 button:hover {
   background-color: #0056b3;
+  opacity: 0.7
 }
 
 .loading-indicator {
@@ -436,7 +440,26 @@ button:hover {
 .history-item button:hover {
   color: #c0392b;
 }
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
+.chat-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.close-chat {
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+}
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
