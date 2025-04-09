@@ -131,7 +131,7 @@ export default {
       let formData = new FormData();
       this.selectedFiles.forEach(file => formData.append("files", file));
       formData.append("jobOffer", this.jobOffer);
-
+      formData.append("systemPrompt", this.getPromptFromSettings("compare"));
       this.loading = true;
       try {
         const response = await axios.post("http://localhost:9090/cv/compare-cvs", formData);
@@ -152,9 +152,11 @@ export default {
       this.messages.push({ sender: "user", text: this.userMessage });
       this.loading = true;
       try {
+        const customPrompt = this.getPromptFromSettings("chat");
         const response = await axios.post("http://localhost:9090/cv/follow-up", {
-          message: this.userMessage,
-          conversationId: this.conversationId
+        message: this.userMessage,
+        conversationId: this.conversationId,
+        systemPrompt: customPrompt
         });
         this.messages.push({ sender: "bot", text: response.data || "Pas de réponse" });
         this.saveToHistory();
@@ -183,7 +185,15 @@ export default {
     this.showChat = false;
     this.conversationId = null;
   }
+},
+getPromptFromSettings(type) {
+  const settings = JSON.parse(localStorage.getItem("promptSettings") || "{}");
+  return type === "compare"
+    ? settings.systemPrompt || ""
+    : settings.customPrompt || "";
 }
+
+
 
   },
 };
