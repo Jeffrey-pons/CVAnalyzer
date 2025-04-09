@@ -50,7 +50,7 @@
   
   .hero p {
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   
   .cta-button {
