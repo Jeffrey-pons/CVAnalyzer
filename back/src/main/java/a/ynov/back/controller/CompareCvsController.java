@@ -3,10 +3,7 @@ package a.ynov.back.controller;
 import a.ynov.back.dto.CvsAndOfferDto;
 import a.ynov.back.dto.OfferDto;
 import a.ynov.back.dto.ResponseDto;
-import a.ynov.back.entity.Cv;
-import a.ynov.back.entity.CvsAndOffer;
-import a.ynov.back.entity.Message;
-import a.ynov.back.entity.Offer;
+import a.ynov.back.entity.*;
 import a.ynov.back.repository.ConversationRepository;
 import a.ynov.back.repository.MessageRepository;
 import a.ynov.back.service.*;
@@ -20,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,24 +38,24 @@ public class CompareCvsController {
     private final MessageRepository messageRepo;
 
     @PostMapping("/compare-cvs")
-    public ResponseEntity<String> compareCvs(
+    public ResponseEntity<Map<String, Object>> compareCvs(
             @RequestParam("jobOffer") String jobOffer,
             @RequestParam("files") List<MultipartFile> files,
             @RequestParam(value = "systemPrompt", required = false) String systemPrompt) {
 
         try {
-            // Sauvegarder l'offre d'emploi dans la base de données
+            // 1. Sauvegarder l'offre d'emploi
             OfferDto offerDto = new OfferDto(jobOffer);
             Offer savedOffre = offreService.save(offerDto);
 
-            // Sauvegarder les CV (les fichiers PDF)
+            // 2. Sauvegarder les CV
             Iterable<Cv> cvssaved = cvService.saveAll(files);
 
-            // Sauvegarder la première question (l'association entre l'offre et les CV)
+            // 3. Sauvegarder l'association Offre + CVs
             CvsAndOfferDto firstQstDto = new CvsAndOfferDto(savedOffre, cvssaved);
             CvsAndOffer firstQuestion = firstQstService.save(firstQstDto);
 
-            // Préparer la question et le prompt pour l'IA
+            // 4. Construire la question IA
             String question = cvssaved.toString() + savedOffre.toString();
             String prompt = (systemPrompt != null && !systemPrompt.isBlank())
                     ? systemPrompt
@@ -68,23 +66,56 @@ public class CompareCvsController {
                     new UserMessage("<start_of_turn>" + question + "<end_of_turn>")
             );
 
-            // Appeler l’IA
-            String message = chatIAService.sendMessageToIA(messages);
+            // 5. Appeler l'IA
+            String aiResponse = chatIAService.sendMessageToIA(messages);
+            String conversationTitle = jobOffer.length() > 100 ? jobOffer.substring(0, 100) + "..." : jobOffer;
 
-            // Sauvegarder la réponse
-            reponseService.save(new ResponseDto(message, firstQuestion));
+            // 6. Créer une nouvelle conversation
+            Conversation conversation = new Conversation();
+            conversation.setTitle(conversationTitle);
+            conversation.setCreatedAt(LocalDateTime.now());
+            conversation = conversationRepo.save(conversation);
 
-            return ResponseEntity.ok(message);
+            // 7. Sauvegarder les messages (utilisateur + IA)
+            Message userMsg = new Message();
+            userMsg.setConversation(conversation);
+            userMsg.setSender("user");
+            userMsg.setContent(question);
+            userMsg.setTimestamp(LocalDateTime.now());
+
+            Message aiMsg = new Message();
+            aiMsg.setConversation(conversation);
+            aiMsg.setSender("ai");
+            aiMsg.setContent(aiResponse);
+            aiMsg.setTimestamp(LocalDateTime.now());
+
+            messageRepo.save(userMsg);
+            messageRepo.save(aiMsg);
+
+            // 8. Sauvegarder la réponse liée à CvsAndOffer
+            reponseService.save(new ResponseDto(aiResponse, firstQuestion));
+
+            // 9. Préparer la réponse pour le frontend
+            Map<String, Object> responseMap = new HashMap<>();
+            responseMap.put("message", aiResponse);
+            responseMap.put("conversationId", conversation.getId());
+
+            return ResponseEntity.ok(responseMap);
 
         } catch (Exception e) {
-            e.printStackTrace(); // pour logs serveur
-            return ResponseEntity.status(500).body("Erreur côté serveur : " + e.getMessage());
+            e.printStackTrace();
+            Map<String, Object> errorMap = new HashMap<>();
+            errorMap.put("error", "Erreur côté serveur : " + e.getMessage());
+            return ResponseEntity.status(500).body(errorMap);
         }
     }
 
 
-    @PostMapping("/follow-up")
-    public ResponseEntity<String> followUpConversation(@RequestBody Map<String, String> request) {
+
+
+
+    @PostMapping("/follow-up/{conversationId}")
+    public ResponseEntity<String> followUpConversation(@PathVariable Long conversationId, @RequestBody Map<String, String> request) {
         String userMessage = request.get("message");
         String customPrompt = request.getOrDefault("systemPrompt", "");
 
@@ -92,22 +123,41 @@ public class CompareCvsController {
             return ResponseEntity.badRequest().body("❌ La question ne peut pas être vide.");
         }
 
-        // On peut optionnellement ajouter un message système pour encadrer le contexte
-        //String prompt = cvreadingService.readInternalFileAsString("prompts/promptChatbot.txt");
+        var conversationOpt = conversationRepo.findById(conversationId);
+        if (conversationOpt.isEmpty()) {
+            return ResponseEntity.badRequest().body("❌ Conversation non trouvée.");
+        }
+
+        var conversation = conversationOpt.get();
+
+        // Sauvegarder le message utilisateur
+        Message msgUser = new Message();
+        msgUser.setConversation(conversation);
+        msgUser.setSender("user");
+        msgUser.setContent(userMessage);
+        messageRepo.save(msgUser);
+
         String prompt = customPrompt.isBlank()
                 ? cvreadingService.readInternalFileAsString("prompts/promptChatbot.txt")
                 : customPrompt;
-        // Crée les messages pour l'IA
+
         List<AbstractMessage> messages = List.of(
                 new SystemMessage("<start_of_turn>" + prompt + "<end_of_turn>"),
                 new UserMessage("<start_of_turn>" + userMessage + "<end_of_turn>")
         );
 
-        // Appelle l’IA
         String aiResponse = chatIAService.sendMessageToIA(messages);
+
+        // Sauvegarder la réponse de l’IA
+        Message msgAI = new Message();
+        msgAI.setConversation(conversation);
+        msgAI.setSender("ai");
+        msgAI.setContent(aiResponse);
+        messageRepo.save(msgAI);
 
         return ResponseEntity.ok(aiResponse);
     }
+
 
     @GetMapping("/conversations")
     public ResponseEntity<List<Map<String, Object>>> getAllConversations() {
@@ -135,7 +185,11 @@ public class CompareCvsController {
         response.put("messages", messages);
         return ResponseEntity.ok(response);
     }
-
+    @DeleteMapping("/conversations/{id}")
+    public ResponseEntity<Void> deleteConversation(@PathVariable Long id) {
+        conversationRepo.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 
 
 }
