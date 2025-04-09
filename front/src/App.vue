@@ -1,24 +1,25 @@
 <template>
-  <UploadPdf />
+  <div id="app">
+    <AppHeader />
+    <router-view />  
+  </div>
 </template>
 
 <script>
-import UploadPdf from "./components/UploadPdf.vue";
+import AppHeader from './components/Header.vue';
+
 export default {
   name: "App",
   components: {
-    UploadPdf,
-  },
+    AppHeader,
+  }
 };
 </script>
-
 <style>
+body {
+  margin: auto;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

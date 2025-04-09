@@ -19,13 +19,14 @@
     <div class="main-container">
       <!-- Formulaire -->
       <div class="upload-container">
-        <h2>Upload Files & Text</h2>
+        <h2>Analyse plusieurs CV en fonction d'une offre d'emploi</h2>
 
         <div class="text-section">
           <h3>Offre d'emploi :</h3>
           <textarea v-model="jobOffer" placeholder="Écrivez votre offre ici..."></textarea>
         </div>
-
+        <div class="text-section">
+        <h3>Déposez vos cv :</h3>
         <div class="drop-area" @dragover.prevent @drop="handleDrop">
           <p>
             Glissez-déposez des fichiers ou
@@ -34,6 +35,7 @@
               Choisir des fichiers
             </label>
           </p>
+        </div>
         </div>
 
         <ul v-if="selectedFiles && selectedFiles.length > 0">
@@ -271,7 +273,7 @@ h2 {
 
 .text-section h3 {
   font-size: 1.1em;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
   font-weight: 600;
   color: #333;
 }
