@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="225eecbd-7a07-4457-a76f-f0933324fd8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/CompareCvsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/a/ynov/back/controller/CompareCvsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/resources/prompts/promptConsignes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/components/UploadPdf.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/components/UploadPdf.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +79,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.BackApplication.executor": "Run",
     "Spring Boot.CvanalyzerApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "parametrage",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ponsj/Desktop/CVAnalyzer",
     "node.js.detected.package.eslint": "true",
@@ -185,17 +188,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="CVAnalyzer" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="CVAnalyzer" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
     <configuration name="BackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="back" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="a.ynov.back.BackApplication" />
@@ -253,6 +245,7 @@
       <workItem from="1744011500928" duration="1050000" />
       <workItem from="1744012602633" duration="4197000" />
       <workItem from="1744096151775" duration="12265000" />
+      <workItem from="1744185210045" duration="5003000" />
     </task>
     <servers />
   </component>
