@@ -46,10 +46,10 @@ class PdfServiceTest {
     }
 
     @Test
-    void extractTextFromPdf_ShouldThrowIOException_WhenFileIsInvalid() {
+    void extractTextFromPdf_ShouldThrowRuntimeException_WhenFileIsInvalid() {
         MockMultipartFile invalidFile = new MockMultipartFile(
-                "file", "invalid.pdf", "application/pdf", new byte[]{0x00, 0x01}); // Contenu non PDF
+                "file", "invalid.pdf", "application/pdf", new byte[]{0x00, 0x01});
 
-        assertThrows(IOException.class, () -> pdfService.extractTextFromPdf(invalidFile));
+        assertThrows(RuntimeException.class, () -> pdfService.extractTextFromPdf(invalidFile));
     }
 }

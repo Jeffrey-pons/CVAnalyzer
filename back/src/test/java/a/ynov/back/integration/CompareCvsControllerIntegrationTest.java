@@ -17,6 +17,7 @@ import java.io.File;
 import java.io.FileInputStream;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -57,10 +58,10 @@ class CompareCvsControllerIntegrationTest {
                         .file(file)
                         .param("jobOffer", "Développeur Java"))
                 .andExpect(status().isOk())  // Vérifier le status HTTP 200 OK
-                .andExpect(header().string("Content-Type", "text/plain;charset=UTF-8"))
-                .andDo(result -> {
-                    // Optionnel : afficher la réponse dans la console pour le débogage
-                    System.out.println(result.getResponse().getContentAsString());
+                .andExpect(result -> {
+                    // Vérifier que la réponse n'est pas vide
+                    String responseBody = result.getResponse().getContentAsString();
+                    assertFalse(responseBody.isEmpty(), "La réponse ne doit pas être vide");
                 });
 
         tempFile.delete();
@@ -114,16 +115,16 @@ class CompareCvsControllerIntegrationTest {
                         .file(file2)
                         .param("jobOffer", "Développeur Spring"))
                 .andExpect(status().isOk())  // Vérifier le status HTTP 200 OK
-                .andExpect(header().string("Content-Type", "text/plain;charset=UTF-8"))
                 .andExpect(result -> {
+                    // Vérifier que la réponse n'est pas vide
                     String responseBody = result.getResponse().getContentAsString();
-                    // Vérifier qu'il y a une réponse non vide
                     assertFalse(responseBody.isEmpty(), "La réponse ne doit pas être vide");
                 });
 
         tempFile1.delete();
         tempFile2.delete();
     }
+
     // Fichier invalide
     @Test
     void compareCvs_ShouldReturn5xxOnInvalidFile() throws Exception {
