@@ -7,7 +7,7 @@
       <ul class="nav-links">
         <li><a href="/home-page">Accueil</a></li>
         <li><a href="/analyse-cv">Analyse des CV</a></li>
-        <li><a href="/parametres">Paramètres IA</a></li>
+        <li><a href="/parametres-prompts">Paramètres IA</a></li>
       </ul>
     </nav>
   </header>

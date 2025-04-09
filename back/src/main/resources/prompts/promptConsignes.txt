@@ -1,4 +1,0 @@
-Hi Ollama, here are the instructions you need to take into account when replying:
-- In your reply, please don't send me the offer id.
-- In your reply, please don't send me the start and end tags <start_of_turn> and <end_of_turn>.
-- In your reply, I want answers only in French.

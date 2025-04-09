@@ -40,56 +40,68 @@ public class CompareCvsController {
     private final MessageRepository messageRepo;
 
     @PostMapping("/compare-cvs")
-    public String compareCvs(
+    public ResponseEntity<String> compareCvs(
             @RequestParam("jobOffer") String jobOffer,
-            @RequestParam("files") List<MultipartFile> files) throws IOException {
+            @RequestParam("files") List<MultipartFile> files,
+            @RequestParam(value = "systemPrompt", required = false) String systemPrompt) {
+
 
         if (files.isEmpty() || files.stream().anyMatch(file -> file.isEmpty())) {
             throw new IllegalArgumentException("Les fichiers envoyés sont vides.");
         }
 
-        // Sauvegarder l'offre d'emploi dans la base de données
-        OfferDto offerDto = new OfferDto(jobOffer);
-        Offer savedOffre = offreService.save(offerDto);
+        try {
+            // Sauvegarder l'offre d'emploi dans la base de données
+            OfferDto offerDto = new OfferDto(jobOffer);
+            Offer savedOffre = offreService.save(offerDto);
 
-        // Sauvegarder les CV (les fichiers PDF)
-        Iterable<Cv> cvssaved = cvService.saveAll(files);
+            // Sauvegarder les CV (les fichiers PDF)
+            Iterable<Cv> cvssaved = cvService.saveAll(files);
 
-        // Sauvegarder la première question (l'association entre l'offre et les CV)
-        CvsAndOfferDto firstQstDto = new CvsAndOfferDto(savedOffre, cvssaved);
-        CvsAndOffer firstQuestion = firstQstService.save(firstQstDto);
+            // Sauvegarder la première question (l'association entre l'offre et les CV)
+            CvsAndOfferDto firstQstDto = new CvsAndOfferDto(savedOffre, cvssaved);
+            CvsAndOffer firstQuestion = firstQstService.save(firstQstDto);
 
-        // Préparer la question et le prompt pour l'IA
-        String question = cvssaved.toString() + savedOffre.toString();
-        String prompt = cvreadingService.readInternalFileAsString("prompts/promptCompareCvs.txt");
+            // Préparer la question et le prompt pour l'IA
+            String question = cvssaved.toString() + savedOffre.toString();
+            String prompt = (systemPrompt != null && !systemPrompt.isBlank())
+                    ? systemPrompt
+                    : cvreadingService.readInternalFileAsString("prompts/promptCompareCvs.txt");
 
-        // Créer les messages pour l'IA
-        List<AbstractMessage> messages = List.of(
-                new SystemMessage("<start_of_turn>" + prompt + "<end_of_turn"),
-                new UserMessage("<start_of_turn>" + question + "<end_of_turn>")
-        );
+            List<AbstractMessage> messages = List.of(
+                    new SystemMessage("<start_of_turn>" + prompt + "<end_of_turn>"),
+                    new UserMessage("<start_of_turn>" + question + "<end_of_turn>")
+            );
 
+            // Appeler l’IA
+            String message = chatIAService.sendMessageToIA(messages);
 
-        // Envoyer la question à l'IA et récupérer la réponse
-        String message = chatIAService.sendMessageToIA(messages);
+            // Sauvegarder la réponse
+            reponseService.save(new ResponseDto(message, firstQuestion));
 
-        // Sauvegarder la réponse dans la base de données
-        reponseService.save(new ResponseDto(message, firstQuestion));
+            return ResponseEntity.ok(message);
 
-        return message;
+        } catch (Exception e) {
+            e.printStackTrace(); // pour logs serveur
+            return ResponseEntity.status(500).body("Erreur côté serveur : " + e.getMessage());
+        }
     }
+
 
     @PostMapping("/follow-up")
     public ResponseEntity<String> followUpConversation(@RequestBody Map<String, String> request) {
         String userMessage = request.get("message");
+        String customPrompt = request.getOrDefault("systemPrompt", "");
 
         if (userMessage == null || userMessage.isBlank()) {
             return ResponseEntity.badRequest().body("❌ La question ne peut pas être vide.");
         }
 
         // On peut optionnellement ajouter un message système pour encadrer le contexte
-        String prompt = cvreadingService.readInternalFileAsString("prompts/promptChatbot.txt");
-
+        //String prompt = cvreadingService.readInternalFileAsString("prompts/promptChatbot.txt");
+        String prompt = customPrompt.isBlank()
+                ? cvreadingService.readInternalFileAsString("prompts/promptChatbot.txt")
+                : customPrompt;
         // Crée les messages pour l'IA
         List<AbstractMessage> messages = List.of(
                 new SystemMessage("<start_of_turn>" + prompt + "<end_of_turn>"),
