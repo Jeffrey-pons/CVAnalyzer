@@ -1,4 +1,4 @@
-package a.ynov.back;
+package a.ynov.back.unit;
 
 import a.ynov.back.dto.ResponseDto;
 import a.ynov.back.entity.CvsAndOffer;

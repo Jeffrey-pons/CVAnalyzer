@@ -17,10 +17,14 @@ public class PdfService {
      * @throws IOException si une erreur se produit lors de la lecture du fichier.
      */
     public String extractTextFromPdf(MultipartFile file) throws IOException {
-        PDDocument document = PDDocument.load(file.getInputStream());
-        PDFTextStripper stripper = new PDFTextStripper();
-        String text = stripper.getText(document);
-        document.close();
-        return text;
+        try {
+            PDDocument document = PDDocument.load(file.getInputStream());
+            PDFTextStripper stripper = new PDFTextStripper();
+            String text = stripper.getText(document);
+            document.close();
+            return text;
+        } catch (IOException e) {
+            throw new RuntimeException("Erreur lors de l'extraction du texte du PDF", e);
+        }
     }
 }

@@ -44,6 +44,10 @@ public class CompareCvsController {
             @RequestParam("jobOffer") String jobOffer,
             @RequestParam("files") List<MultipartFile> files) throws IOException {
 
+        if (files.isEmpty() || files.stream().anyMatch(file -> file.isEmpty())) {
+            throw new IllegalArgumentException("Les fichiers envoyés sont vides.");
+        }
+
         // Sauvegarder l'offre d'emploi dans la base de données
         OfferDto offerDto = new OfferDto(jobOffer);
         Offer savedOffre = offreService.save(offerDto);
