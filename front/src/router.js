@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// import HomePage from '../pages/HomePage.vue'; 
+import HomePage from './components/HomePage.vue';
 import UploadPdf from "./components/UploadPdf.vue";
 // import Settings from '../pages/Settings.vue'; 
 
 const routes = [
-//   {
-//     path: '/',
-//     name: 'Home',
-//     component: HomePage,
-//   },
+  {
+    path: '/home-page',
+    name: 'HomePage',
+    component: HomePage,
+  },
   {
     path: '/analyse-cv',
     name: 'CVAnalysis',
