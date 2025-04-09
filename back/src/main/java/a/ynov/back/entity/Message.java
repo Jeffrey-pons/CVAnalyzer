@@ -23,4 +23,7 @@ public class Message {
 
     @ManyToOne
     private Conversation conversation;
+
+
+
 }

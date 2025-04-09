@@ -99,10 +99,15 @@ export default {
       history: [],
     };
   },
-  mounted() {
-    const saved = localStorage.getItem("chatHistory");
-    if (saved) this.history = JSON.parse(saved);
-  },
+  async mounted() {
+  try {
+    const res = await axios.get("http://localhost:9090/cv/conversations");
+    this.history = res.data;
+  } catch (e) {
+    console.error("Erreur de chargement de l'historique : ", e);
+  }
+},
+
   methods: {
     handleFileUpload(event) {
       this.selectedFiles = [...this.selectedFiles, ...event.target.files];
@@ -127,68 +132,102 @@ export default {
       localStorage.setItem("chatHistory", JSON.stringify(updated));
     },
     async uploadPdfs() {
-      if (this.selectedFiles.length === 0) {
-        alert("Veuillez sélectionner au moins un fichier PDF.");
-        return;
-      }
-      let formData = new FormData();
-      this.selectedFiles.forEach(file => formData.append("files", file));
-      formData.append("jobOffer", this.jobOffer);
-      formData.append("systemPrompt", this.getPromptFromSettings("compare"));
-      this.loading = true;
-      try {
-        const response = await axios.post("http://localhost:9090/cv/compare-cvs", formData);
-        const botReply = response.data || "Aucune donnée reçue";
-        this.messages = [{ sender: "bot", text: botReply }];
-        this.conversationId = Date.now();
-        this.showChat = true;
-        this.saveToHistory();
-      } catch (error) {
-        this.messages = [{ sender: "bot", text: "❌ Erreur : " + (error.response?.data?.message || "Problème inconnu") }];
-        this.showChat = true;
-      } finally {
-        this.loading = false;
-      }
-    },
-    async sendMessage() {
-      if (!this.userMessage.trim()) return;
-      this.messages.push({ sender: "user", text: this.userMessage });
-      this.loading = true;
-      try {
-        const customPrompt = this.getPromptFromSettings("chat");
-        const response = await axios.post("http://localhost:9090/cv/follow-up", {
-        message: this.userMessage,
-        conversationId: this.conversationId,
-        systemPrompt: customPrompt
-        });
-        this.messages.push({ sender: "bot", text: response.data || "Pas de réponse" });
-        this.saveToHistory();
-      } catch (error) {
-        this.messages.push({ sender: "bot", text: "❌ Erreur IA" });
-      } finally {
-        this.userMessage = "";
-        this.loading = false;
-      }
-    },
-    loadHistory(item) {
-      this.messages = item.messages;
-      this.conversationId = item.id;
-      this.showChat = true;
-    },
+  if (this.selectedFiles.length === 0) {
+    alert("Veuillez sélectionner au moins un fichier PDF.");
+    return;
+  }
+
+  let formData = new FormData();
+  this.selectedFiles.forEach(file => formData.append("files", file));
+  formData.append("jobOffer", this.jobOffer);
+  formData.append("systemPrompt", this.getPromptFromSettings("compare"));
+
+  this.loading = true;
+
+  try {
+    const response = await axios.post("http://localhost:9090/cv/compare-cvs", formData);
+    
+    const { message, conversationId } = response.data;
+    this.messages = [{ sender: "bot", text: message }];
+    this.conversationId = conversationId;
+    this.showChat = true;
+    this.saveToHistory();
+
+  } catch (error) {
+    this.messages = [{ sender: "bot", text: "❌ Erreur : " + (error.response?.data?.message || "Problème inconnu") }];
+    this.showChat = true;
+  } finally {
+    this.loading = false;
+  }
+}
+,
+async sendMessage() {
+  if (!this.userMessage.trim()) return;
+
+  // Sécurité : s'assurer que this.messages est bien un tableau
+  if (!Array.isArray(this.messages)) {
+    this.messages = [];
+  }
+
+  this.messages.push({ sender: "user", text: this.userMessage });
+  this.loading = true;
+
+  try {
+    const customPrompt = this.getPromptFromSettings("chat");
+    const response = await axios.post(`http://localhost:9090/cv/follow-up/${this.conversationId}`, {
+      message: this.userMessage,
+      systemPrompt: customPrompt
+    });
+
+    this.messages.push({ sender: "bot", text: response.data || "Pas de réponse" });
+    this.saveToHistory();
+
+  } catch (error) {
+    this.messages.push({ sender: "bot", text: "❌ Erreur IA" });
+  } finally {
+    this.userMessage = "";
+    this.loading = false;
+  }
+}
+,
+async loadHistory(item) {
+  this.loading = true;
+  try {
+    const res = await axios.get(`http://localhost:9090/cv/conversations/${item.id}`);
+    const backendMessages = res.data.messages || [];
+
+    this.messages = backendMessages;
+    this.conversationId = item.id;
+    this.showChat = true;
+  } catch (e) {
+    console.error("Erreur chargement conversation :", e);
+  } finally {
+    this.loading = false;
+  }
+},
+
     formatDate(dateStr) {
       return new Date(dateStr).toLocaleString();
     },
-    deleteHistory(id) {
-  this.history = this.history.filter(item => item.id !== id);
-  localStorage.setItem("chatHistory", JSON.stringify(this.history));
+    async deleteHistory(id) {
+  try {
+    await axios.delete(`http://localhost:9090/cv/conversations/${id}`);
+    
+    // Met à jour l'historique local après suppression côté BDD
+    this.history = this.history.filter(item => item.id !== id);
 
-  // Si la discussion supprimée était en cours
-  if (this.conversationId === id) {
-    this.messages = [];
-    this.showChat = false;
-    this.conversationId = null;
+    // Si la conversation supprimée était celle en cours
+    if (this.conversationId === id) {
+      this.messages = [];
+      this.showChat = false;
+      this.conversationId = null;
+    }
+  } catch (error) {
+    console.error("Erreur lors de la suppression :", error);
+    alert("❌ Impossible de supprimer la conversation.");
   }
-},
+}
+,
 getPromptFromSettings(type) {
   const settings = JSON.parse(localStorage.getItem("promptSettings") || "{}");
   return type === "compare"
