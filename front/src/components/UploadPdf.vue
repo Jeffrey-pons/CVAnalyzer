@@ -72,7 +72,14 @@
             <p><span class="spinner">🔄</span> Réflexion en cours...</p>
           </div>
         </div>
-
+        <div v-if="conversationCvs.length > 0" class="attached-cvs">
+        <h4>📎 CVs associés :</h4>
+         <ul>
+          <li v-for="cv in conversationCvs" :key="cv.filename">
+            <a :href="`http://localhost:9090/cv/download/${cv.id}`" target="_blank">{{ cv.filename }}</a>
+          </li>
+         </ul>
+         </div>
         <div class="chat-input">
           <input v-model="userMessage" @keyup.enter="sendMessage" placeholder="Posez une question..." />
           <button @click="sendMessage" :disabled="loading || !userMessage.trim()">Envoyer</button>
@@ -97,6 +104,7 @@ export default {
       showChat: false,
       conversationId: null,
       history: [],
+      conversationCvs: [],
     };
   },
   async mounted() {
@@ -194,9 +202,8 @@ async loadHistory(item) {
   this.loading = true;
   try {
     const res = await axios.get(`http://localhost:9090/cv/conversations/${item.id}`);
-    const backendMessages = res.data.messages || [];
-
-    this.messages = backendMessages;
+    this.messages = res.data.messages;
+    this.conversationCvs = res.data.cvs || [];
     this.conversationId = item.id;
     this.showChat = true;
   } catch (e) {
@@ -204,7 +211,8 @@ async loadHistory(item) {
   } finally {
     this.loading = false;
   }
-},
+}
+,
 
     formatDate(dateStr) {
       return new Date(dateStr).toLocaleString();
@@ -509,6 +517,16 @@ button:hover {
   color: #888;
   transition: color 0.2s;
 }
+.attached-cvs {
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+.attached-cvs ul {
+  padding-left: 20px;
+}
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
