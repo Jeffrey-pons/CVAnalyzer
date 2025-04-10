@@ -5,9 +5,9 @@
     </div>
     <nav>
       <ul class="nav-links">
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/analyse-cv">Analyse des CV</a></li>
-        <li><a href="/parametres-prompts">Paramètres IA</a></li>
+        <li><router-link to="/home-page">Accueil</router-link></li>
+        <li><router-link to="/analyse-cv">Analyse des CV</router-link></li>
+        <li><router-link to="/parametres-prompts">Paramètres IA</router-link></li>
       </ul>
     </nav>
   </header>
