@@ -3,9 +3,9 @@
       <section class="hero">
         <h1>Bienvenue sur <span class="highlight">CV Analyzer</span></h1>
         <p>L'outil intelligent pour analyser, comparer et améliorer vos CV grâce à l'intelligence artificielle.</p>
-        <a href="/analyse-cv" class="cta-button">Commencer l’analyse</a>
+        <router-link to="/analyse-cv" class="cta-button">Commencer l’analyse</router-link>
       </section>
-  
+  <div class="section-container">
       <section class="features">
         <h2>Fonctionnalités clés</h2>
         <ul>
@@ -15,6 +15,14 @@
           <li>🧠 Paramétrage de l’intelligence artificielle</li>
         </ul>
       </section>
+      <section class="use-cases">
+        <h2>Cas d’usage</h2>
+          <ul>
+            <li>👨‍💼 Pour les recruteurs : analyser plusieurs CV rapidement pour identifier le meilleur profil.</li>
+            <li>📝 Pour les candidats : obtenir des suggestions pour améliorer leur CV et se démarquer.</li>
+          </ul>
+      </section>
+    </div>
     </div>
   </template>
   
@@ -93,5 +101,33 @@
     margin: 10px 0;
     padding-left: 10px;
   }
+  .use-cases {
+  text-align: left;
+  max-width: 600px;
+  margin: 40px auto;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.use-cases h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #222;
+  text-align: center;
+}
+
+.use-cases ul {
+  list-style: none;
+  padding: 0;
+}
+
+.use-cases li {
+  margin: 10px 0;
+  padding-left: 10px;
+}
+.section-container {
+  display:flex;
+  align-items: center;
+}
   </style>
   
