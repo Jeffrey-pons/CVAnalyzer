@@ -3,11 +3,18 @@
       <section class="hero">
         <h1>Bienvenue sur <span class="highlight">CV Analyzer</span></h1>
         <p>L'outil intelligent pour analyser, comparer et améliorer vos CV grâce à l'intelligence artificielle.</p>
-        <router-link to="/analyse-cv" class="cta-button">Commencer l’analyse</router-link>
+        <p>Ajustez le comportement de l’IA selon votre secteur, les types de postes à pourvoir et vos préférences.</p>
+        <div class="button-container">
+          <router-link to="/analyse-cv" class="cta-button">Commencer l’analyse</router-link>
+          <router-link to="/parametres-prompts" class="cta-button alt">Paramétrer l'IA</router-link>
+        </div>
       </section>
   <div class="section-container">
       <section class="features">
-        <h2>Fonctionnalités clés</h2>
+        <div class="title-section">
+          <h2>Fonctionnalités clés</h2>
+          <img class="icon-star" src="../assets/icon-star.png" alt="">
+        </div>
         <ul>
           <li>🔍 Analyse automatique des CV</li>
           <li>📊 Scoring intelligent</li>
@@ -16,7 +23,10 @@
         </ul>
       </section>
       <section class="use-cases">
-        <h2>Cas d’usage</h2>
+        <div class="title-section">
+          <h2>Cas d’usage</h2>
+          <img class="icon-star" src="../assets/icon-star.png" alt="">
+      </div>
           <ul>
             <li>👨‍💼 Pour les recruteurs : analyser plusieurs CV rapidement pour identifier le meilleur profil.</li>
             <li>📝 Pour les candidats : obtenir des suggestions pour améliorer leur CV et se démarquer.</li>
@@ -54,16 +64,16 @@
   
   .highlight {
     color: #f0a500;
+    margin-bottom: 30px;
   }
   
   .hero p {
     font-size: 1.2rem;
-    margin-bottom: 40px;
   }
   
   .cta-button {
     background-color: #f0a500;
-    color: #333;
+    color: white;
     padding: 12px 24px;
     border-radius: 8px;
     font-weight: bold;
@@ -79,7 +89,7 @@
   }
   
   .features {
-    text-align: left;
+    text-align: justify;
     max-width: 600px;
     margin: 0 auto;
   }
@@ -102,7 +112,7 @@
     padding-left: 10px;
   }
   .use-cases {
-  text-align: left;
+  text-align: justify;
   max-width: 600px;
   margin: 40px auto;
   font-size: 1.1rem;
@@ -127,6 +137,37 @@
 }
 .section-container {
   display:flex;
+  align-items: center;
+}
+.section-container section {
+  flex: 1;
+}
+
+.cta-button.alt {
+  background-color: #ffffff;
+  color: #f0a500;
+  border: 2px solid #f0a500;
+}
+
+.cta-button.alt:hover {
+  background-color: #f0a500;
+  color: #fff;
+}
+.button-container{
+margin-top: 30px;
+display: flex;
+gap: 30px;
+justify-content: center;
+}
+.icon-star {
+  width: 30px;
+  height: auto;
+  margin-top: 10px;
+}
+.title-section{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
   align-items: center;
 }
   </style>
