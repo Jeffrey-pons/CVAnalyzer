@@ -29,4 +29,6 @@ public class CvsAndOffer {
     @OneToOne(mappedBy = "firstQuestion", cascade = CascadeType.ALL)
     private ResponseIA responseIA;
 
+
+
 }

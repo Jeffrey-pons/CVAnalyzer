@@ -1,6 +1,7 @@
 package a.ynov.back.service;
 
 import a.ynov.back.dto.CvDto;
+import a.ynov.back.entity.Conversation;
 import a.ynov.back.entity.Cv;
 import a.ynov.back.repository.CvRepository;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +9,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -51,19 +56,47 @@ public class CvService {
      * @param cvDtos la liste des fichiers PDF à convertir en CVs.
      * @return une liste des entités CV sauvegardées.
      */
-    public Iterable<Cv> saveAll(List<MultipartFile> cvDtos) throws IOException {
-        // Convertir chaque fichier MultipartFile en un CvDto et sauvegarder
-        List<Cv> cvs = cvDtos.stream()
-                .map(file -> {
-                    try {
-                        CvDto cvDto = convertToCvDto(file); // Convertir le fichier en CvDto
-                        return save(cvDto); // Sauvegarder l'entité Cv
-                    } catch (IOException e) {
-                        throw new RuntimeException("Erreur lors de la conversion du fichier", e);
-                    }
-                })
-                .collect(Collectors.toList());
+    public Iterable<Cv> saveAll(List<MultipartFile> files) {
+        List<Cv> cvs = files.stream().map(file -> {
+            try {
+                String contenu = pdfService.extractTextFromPdf(file);
 
-        return cvRepository.saveAll(cvs); // Sauvegarde en une seule opération
+                Cv cv = new Cv();
+                cv.setContenu(contenu);
+                cv.setOriginalFilename(file.getOriginalFilename());
+
+                String storagePath = System.getProperty("user.dir") + "/uploads/" + UUID.randomUUID() + "_" + file.getOriginalFilename();
+                Files.createDirectories(Path.of(System.getProperty("user.dir") + "/uploads/"));
+                Files.copy(file.getInputStream(), Path.of(storagePath), StandardCopyOption.REPLACE_EXISTING);
+                cv.setStoragePath(storagePath);
+
+                return cv;
+            } catch (IOException e) {
+                throw new RuntimeException("Erreur lors du traitement du fichier : " + file.getOriginalFilename(), e);
+            }
+        }).collect(Collectors.toList());
+
+        return cvRepository.saveAll(cvs);
     }
+
+
+    public Iterable<Cv> updateCvsWithConversation(List<Cv> cvs, Conversation conversation) {
+        for (Cv cv : cvs) {
+            cv.setConversation(conversation);
+        }
+        return cvRepository.saveAll(cvs);
+    }
+    public List<Cv> findByConversationId(Long conversationId) {
+        return cvRepository.findByConversationId(conversationId);
+    }
+
+
+    public Cv findById(Long id) {
+        return cvRepository.findById(id).orElse(null);
+    }
+
+    public void deleteAll(List<Cv> cvs) {
+        cvRepository.deleteAll(cvs);
+    }
+
 }
