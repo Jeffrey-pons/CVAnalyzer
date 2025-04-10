@@ -125,17 +125,21 @@
     gap: 10px;
   }
   button {
-    background-color: #007bff;
-    color: white;
+    background-color: #fff;
+    color: #f0a500;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
+    font-size: 1.1em;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    border: 2px solid #f0a500;
+     font-weight: bold;
   }
   button:hover {
-    background-color: #0056b3;
-  }
+  background-color: #f0a500;
+    color: white;
+}
   .saved-message {
     margin-top: 15px;
     color: green;
