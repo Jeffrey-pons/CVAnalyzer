@@ -1,7 +1,8 @@
 <template>
   <header class="app-header">
     <div class="logo">
-      <img src="@/assets/logo-cv-analyzer.png" alt="Logo" />
+      <img src="@/assets/icon-startSize.png" alt="Logo" />
+      <h3>CV Analyzer</h3>
     </div>
     <nav>
       <ul class="nav-links">
@@ -25,13 +26,19 @@ export default {
   justify-content: space-between;
   align-items: center;
   background-color: #333;
-  padding: 10px 20px;
+  padding: 0px 20px;
   color: white;
 }
 
+.logo {
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+  gap: 10px;
+}
 .logo img {
-  width: 50px;
-  height: auto;
+  width: 35px;
+  height: 35px;
 }
 
 nav .nav-links {

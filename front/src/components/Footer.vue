@@ -1,6 +1,6 @@
 <template>
     <footer class="app-footer">
-      <p>&copy; 2025 CV Analyzer — Projet Ynov.</p>
+      <p>&copy; 2025 CV Analyzer — Ynov Bordeaux | M2 Expert Dev SI LBP/CGI</p>
     </footer>
   </template>
   
@@ -16,7 +16,6 @@
     color: white;
     text-align: center;
     padding: 12px 6px;
-    margin-top: 50px;
   }
 
   </style>

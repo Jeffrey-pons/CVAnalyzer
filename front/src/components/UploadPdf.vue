@@ -19,14 +19,21 @@
     <div class="main-container">
       <!-- Formulaire -->
       <div class="upload-container">
-        <h2>Analyse plusieurs CV en fonction d'une offre d'emploi</h2>
+        <img src="../assets/cv-icon.png" alt="">
+        <h2>Analysez plusieurs <span class="highlight">CV</span> en fonction d’une <span class="highlight">offre d’emploi</span></h2>
 
         <div class="text-section">
-          <h3>Offre d'emploi :</h3>
+          <div class="title-section">
+          <h3>Offre d'emploi</h3>
+          <img class="icon-star" src="../assets/icon-star.png" alt="">
+        </div>
           <textarea v-model="jobOffer" placeholder="Écrivez votre offre ici..."></textarea>
         </div>
         <div class="text-section">
-        <h3>Déposez vos cv :</h3>
+          <div class="title-section">
+        <h3>Déposez vos cv </h3>
+        <img class="icon-star" src="../assets/icon-star.png" alt="">
+      </div>
         <div class="drop-area" @dragover.prevent @drop="handleDrop">
           <p>
             Glissez-déposez des fichiers ou
@@ -62,13 +69,13 @@
   </div>
         <div class="chat-messages">
           <div v-for="(msg, index) in messages" :key="index" :class="['message', msg.sender]">
-            <strong v-if="msg.sender === 'user'">👤 Vous:</strong>
-            <strong v-else>🤖 Bot:</strong>
+            <strong v-if="msg.sender === 'user'">👤 Vous : </strong>
+            <strong v-else>🤖 Agent IA :</strong>
             <p>{{ msg.text }}</p>
           </div>
 
           <div v-if="loading" class="message bot loading-message">
-            <strong>🤖 Bot:</strong>
+            <strong>🤖 Agent IA :</strong>
             <p><span class="spinner">🔄</span> Réflexion en cours...</p>
           </div>
         </div>
@@ -252,6 +259,13 @@ getPromptFromSettings(type) {
 <style scoped>
 .main-layout {
   display: flex;
+  flex: 1;
+}
+html, body {
+  height: 100%; 
+  margin: 0;
+  display: flex;
+  flex-direction: column; 
 }
 
 .sidebar {
@@ -259,8 +273,10 @@ getPromptFromSettings(type) {
   background: #f0f0f0;
   padding: 20px;
   border-right: 1px solid #ccc;
-  height: 100vh;
-  overflow-y: auto;
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column; 
+  height: 82vh;
 }
 
 .sidebar-title {
@@ -280,7 +296,7 @@ getPromptFromSettings(type) {
   margin-bottom: 12px;
   padding: 12px;
   background: #fff;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid #f0a500;
   border-radius: 6px;
   transition: all 0.2s;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -292,7 +308,7 @@ getPromptFromSettings(type) {
 
 .history-title {
   font-weight: bold;
-  color: #007bff;
+  color: #f0a500;
   font-size: 0.95em;
 }
 
@@ -317,6 +333,10 @@ getPromptFromSettings(type) {
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   text-align: center;
+  height: auto;
+}
+.upload-container img {
+  max-width: 100px;
 }
 
 h2 {
@@ -348,17 +368,20 @@ textarea {
   font-size: 0.95em;
   font-family: inherit;
 }
-
+textarea:focus-visible{
+  border: 2px solid #f0a500;
+  outline: none;
+}
 .drop-area {
-  border: 2px dashed #007bff;
+  border: 2px dashed #f0a500;
   padding: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   border-radius: 12px;
   transition: background-color 0.2s ease;
 }
 
 .drop-area:hover {
-  background-color: #f0f8ff;
+  background-color: rgba(202, 189, 11, 0.089);
 }
 
 .custom-file-upload {
@@ -413,20 +436,21 @@ ul li button:hover {
 }
  
 button {
-  background-color: #007bff;
+  background-color: #f0a500;
   color: white;
   border: none;
   padding: 12px 25px;
-  font-size: 1em;
+  font-size: 1.1em;
   cursor: pointer;
-  margin-top: 15px;
+  font-weight: bold;
   border-radius: 8px;
   transition: background-color 0.3s ease;
 }
  
 button:hover {
-  background-color: #0056b3;
-  opacity: 0.7
+  background-color: #fff;
+    color: #f0a500;
+    border: 2px solid #f0a500;
 }
 
 .loading-indicator {
@@ -526,7 +550,20 @@ button:hover {
 .attached-cvs ul {
   padding-left: 20px;
 }
-
+.highlight {
+    color: #f0a500;
+    margin-bottom: 30px;
+  }
+  .icon-star {
+  width: 25px;
+  height: auto;
+}
+.title-section{
+  display: flex;
+  gap: 6px;
+  justify-content: left;
+  align-items: center;
+}
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
