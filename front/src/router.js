@@ -6,7 +6,7 @@ import PromptSettings from "./components/PromptSettings.vue";
 
 const routes = [
   {
-    path: '/home-page', 
+    path: '/', 
     name: 'HomePage',
     component: HomePage,
   },

@@ -7,20 +7,30 @@ import a.ynov.back.entity.*;
 import a.ynov.back.repository.ConversationRepository;
 import a.ynov.back.repository.MessageRepository;
 import a.ynov.back.service.*;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.messages.AbstractMessage;
 import org.springframework.ai.chat.messages.SystemMessage;
 import org.springframework.ai.chat.messages.UserMessage;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.data.jpa.repository.JpaContext;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8081", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST})
@@ -61,14 +71,19 @@ public class CompareCvsController {
             CvsAndOffer firstQuestion = firstQstService.save(firstQstDto);
 
             // 4. Construire la question IA
-            String question = cvssaved.toString() + savedOffre.toString();
+            //String question = cvssaved.toString() + savedOffre.toString();
+            // Question complète pour l'IA
+            String questionForIA = cvssaved.toString() + savedOffre.toString();
+
+// Questi   on visible pour l'utilisateur (UNIQUEMENT l'offre)
+            String visibleQuestion = savedOffre.toString();
             String prompt = (systemPrompt != null && !systemPrompt.isBlank())
                     ? systemPrompt
                     : cvreadingService.readInternalFileAsString("prompts/promptCompareCvs.txt");
 
             List<AbstractMessage> messages = List.of(
                     new SystemMessage("<start_of_turn>" + prompt + "<end_of_turn>"),
-                    new UserMessage("<start_of_turn>" + question + "<end_of_turn>")
+                    new UserMessage("<start_of_turn>" + questionForIA + "<end_of_turn>")
             );
 
             // 5. Appeler l'IA
@@ -80,12 +95,18 @@ public class CompareCvsController {
             conversation.setTitle(conversationTitle);
             conversation.setCreatedAt(LocalDateTime.now());
             conversation = conversationRepo.save(conversation);
+            List<Cv> cvList = new ArrayList<>();
+            cvssaved.forEach(cvList::add);
+
+            cvService.updateCvsWithConversation(cvList, conversation);
+
+
 
             // 7. Sauvegarder les messages (utilisateur + IA)
             Message userMsg = new Message();
             userMsg.setConversation(conversation);
             userMsg.setSender("user");
-            userMsg.setContent(question);
+            userMsg.setContent(visibleQuestion);
             userMsg.setTimestamp(LocalDateTime.now());
 
             Message aiMsg = new Message();
@@ -186,15 +207,69 @@ public class CompareCvsController {
             return map;
         }).toList();
 
+        List<Cv> cvs = cvService.findByConversationId(id);
+        List<Map<String, Object>> files = cvs.stream().map(cv -> {
+            Map<String, Object> fileData = new HashMap<>();
+            fileData.put("id", cv.getId()); // 💡
+            fileData.put("filename", cv.getOriginalFilename());
+            fileData.put("url", "/cv/download/" + cv.getId());
+            return fileData;
+        }).toList();
+
+
         Map<String, Object> response = new HashMap<>();
         response.put("messages", messages);
+        response.put("cvs", files); // ✅ envoie les fichiers
+
         return ResponseEntity.ok(response);
     }
     @DeleteMapping("/conversations/{id}")
+    @Transactional
     public ResponseEntity<Void> deleteConversation(@PathVariable Long id) {
-        conversationRepo.deleteById(id);
+        Conversation conversation = conversationRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("Conversation non trouvée."));
+
+        // ⚠️ Gérer explicitement les dépendances
+        List<Cv> cvs = cvService.findByConversationId(id);
+
+        for (Cv cv : cvs) {
+            // Retire les références dans firstQuestions
+            cv.getFirstQuestions().forEach(fq -> fq.getCvs().remove(cv));
+            cv.getFirstQuestions().clear();
+        }
+
+        // Suppression explicite des CV
+        cvService.deleteAll(cvs);
+
+        // Suppression conversation
+        conversationRepo.delete(conversation);
+
         return ResponseEntity.noContent().build();
     }
+
+
+    @GetMapping("/download/{id}")
+    public ResponseEntity<Resource> downloadCv(@PathVariable Long id) throws IOException {
+        Cv cv = cvService.findById(id);
+        if (cv == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        Path path = Paths.get(cv.getStoragePath());
+        if (!Files.exists(path)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Resource file = new UrlResource(path.toUri());
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + cv.getOriginalFilename() + "\"")
+                .header(HttpHeaders.CONTENT_TYPE, "application/pdf")
+                .body(file);
+    }
+
+
+
 
 
 }

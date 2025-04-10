@@ -13,13 +13,20 @@ import java.util.List;
 @ToString
 public class Cv {
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Lob
     private String contenu;
+
+    private String originalFilename; // ✅ nom du fichier
+
+    private String storagePath; // ✅ chemin sur le disque (facultatif)
 
     @ManyToMany(mappedBy = "cvs")
     private List<CvsAndOffer> firstQuestions;
 
-
+    @ManyToOne
+    @JoinColumn(name = "conversation_id")
+    private Conversation conversation;
 }
