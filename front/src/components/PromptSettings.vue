@@ -93,8 +93,8 @@
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    margin-top: 80px; /* Espace au-dessus du formulaire */
-    margin-bottom: 80px; 
+    margin-top: 40px; 
+    margin-bottom: 40px; 
   }
   .section {
     margin-bottom: 25px;
