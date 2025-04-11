@@ -87,6 +87,20 @@
           </li>
          </ul>
          </div>
+         <div v-if="templates.length > 0" class="suggestions">
+  <h4>💡 Questions suggérées :</h4>
+  <div class="suggestion-list">
+    <button
+      v-for="(question, index) in templates"
+      :key="index"
+      @click="userMessage = question"
+      class="suggestion-btn"
+    >
+      {{ question }}
+    </button>
+  </div>
+</div>
+
         <div class="chat-input">
           <input v-model="userMessage" @keyup.enter="sendMessage" placeholder="Posez une question..." />
           <button @click="sendMessage" :disabled="loading || !userMessage.trim()">Envoyer</button>
@@ -112,15 +126,17 @@ export default {
       conversationId: null,
       history: [],
       conversationCvs: [],
+      templates: [],
     };
   },
-  async mounted() {
-  try {
-    const res = await axios.get("http://localhost:9090/cv/conversations");
-    this.history = res.data;
-  } catch (e) {
-    console.error("Erreur de chargement de l'historique : ", e);
-  }
+  mounted() {
+  const promptSettings = JSON.parse(localStorage.getItem("promptSettings") || "{}");
+  this.templates = promptSettings.templates || [];
+
+  // Chargement historique déjà présent
+  axios.get("http://localhost:9090/cv/conversations")
+    .then(res => this.history = res.data)
+    .catch(e => console.error("Erreur de chargement de l'historique : ", e));
 },
 
   methods: {
@@ -566,6 +582,31 @@ button:hover {
   gap: 6px;
   justify-content: left;
   align-items: center;
+}
+.suggestions {
+  margin-bottom: 15px;
+}
+
+.suggestion-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.suggestion-btn {
+  background-color: #8a8585;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.suggestion-btn:hover {
+  background-color: #f0a500;
+  color: white;
+  border-color: #f0a500;
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }
