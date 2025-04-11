@@ -1,0 +1,21 @@
+Prompt:
+
+Can you identify the weakness of the candidate you did not choose?
+
+***************************************************************************
+Questions fréquentes: 
+
+1.Quel candidat semble le plus motivé ?
+
+2.Y a-t-il des incohérences dans certains CV ?
+
+3.Qui a une bonne stabilité professionnelle ?
+
+4.Quels sont les points faibles des profils analysés ?
+
+****************************************************************************
+1.En reprenant l'offre envoyée dans le premier message avec les CV, pourrais-tu attribuer une note de 1 à 10 (1 étant la note la plus basse et 10 la plus élevée) 
+aux deux CV de ces candidats ?
+
+2.D'accord je comprends ta notation, maintenant peux tu développer ton choix de candidat ? Tu as choisis ..... précédement , pourquoi choisir ..... ?
+
