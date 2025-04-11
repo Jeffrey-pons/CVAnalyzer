@@ -38,9 +38,9 @@ class ResponseServiceTest {
         offer.setId(1);
 
         Cv cv1 = new Cv();
-        cv1.setId(1); // Initialisation de CV1 avec un ID
+        cv1.setId(1L); // Initialisation de CV1 avec un ID
         Cv cv2 = new Cv();
-        cv2.setId(2); // Initialisation de CV2 avec un ID
+        cv2.setId(2L); // Initialisation de CV2 avec un ID
 
         CvsAndOffer firstQuestion = new CvsAndOffer();
         firstQuestion.setOffre(offer);
@@ -74,9 +74,9 @@ class ResponseServiceTest {
         offer.setId(1); // Initialisation d'une offre avec un ID
 
         Cv cv1 = new Cv();
-        cv1.setId(1);
+        cv1.setId(1L);
         Cv cv2 = new Cv();
-        cv2.setId(2);
+        cv2.setId(2L);
 
         CvsAndOffer firstQuestionObj = new CvsAndOffer();
         firstQuestionObj.setOffre(offer);
@@ -154,7 +154,7 @@ class ResponseServiceTest {
         offer.setId(1);
 
         Cv cv1 = new Cv();
-        cv1.setId(1);
+        cv1.setId(1L);
 
         CvsAndOffer firstQuestion = new CvsAndOffer();
         firstQuestion.setOffre(offer);

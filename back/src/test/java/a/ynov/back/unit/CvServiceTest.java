@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -47,7 +48,11 @@ class CvServiceTest {
 
     @Test
     void saveAll_ShouldConvertAndSaveFiles() throws IOException {
+        // Mock MultipartFile
         MultipartFile file = mock(MultipartFile.class);
+        when(file.getOriginalFilename()).thenReturn("test.pdf");
+        when(file.getInputStream()).thenReturn(new ByteArrayInputStream("dummy content".getBytes()));
+
         when(pdfService.extractTextFromPdf(file)).thenReturn("Extracted Text");
 
         Cv extractedCv = new Cv();

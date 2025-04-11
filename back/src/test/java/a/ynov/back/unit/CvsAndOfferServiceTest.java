@@ -34,9 +34,9 @@ class CvsAndOfferServiceTest {
         offer.setId(1);
 
         Cv cv1 = new Cv();
-        cv1.setId(1);
+        cv1.setId(1L);
         Cv cv2 = new Cv();
-        cv2.setId(2);
+        cv2.setId(2L);
 
         CvsAndOfferDto firstQuestionDto = new CvsAndOfferDto(offer, List.of(cv1, cv2));
 
@@ -77,7 +77,7 @@ class CvsAndOfferServiceTest {
     void save_nullOffer() {
         Offer offer = null;
         Cv cv1 = new Cv();
-        cv1.setId(1);
+        cv1.setId(1L);
 
         CvsAndOfferDto firstQuestionDto = new CvsAndOfferDto(offer, List.of(cv1));
 
@@ -100,7 +100,7 @@ class CvsAndOfferServiceTest {
         offer.setId(1);
 
         Cv cv1 = new Cv();
-        cv1.setId(1);
+        cv1.setId(1L);
 
         CvsAndOfferDto firstQuestionDto = new CvsAndOfferDto(offer, List.of(cv1));
 
