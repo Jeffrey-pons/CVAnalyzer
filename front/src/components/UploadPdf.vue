@@ -276,7 +276,7 @@ html, body {
   overflow-y: auto; 
   display: flex;
   flex-direction: column; 
-  height: 82vh;
+  height: 1000px;
 }
 
 .sidebar-title {
