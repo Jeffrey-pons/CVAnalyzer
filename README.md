@@ -55,7 +55,7 @@ L’IA utilisée est propulsée par **Ollama**, qui analyse le contenu des CV et
 
 ```bash
 
- spring.datasource.url=jdbc:mysql://localhost:3306/cv_analyzer
+ spring.datasource.url=jdbc:mysql://localhost:3306/sys
  spring.datasource.username=root
  spring.datasource.password=your_password
 
@@ -64,7 +64,7 @@ L’IA utilisée est propulsée par **Ollama**, qui analyse le contenu des CV et
 3. Création de la base de donnée dans MySQL
 ```bash
 
- CREATE DATABASE cv_analyzer;
+ CREATE DATABASE sys;
 
 ```
 
