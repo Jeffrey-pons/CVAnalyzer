@@ -1,0 +1,88 @@
+1. Offre développeur full stack : 
+--------------------------------------------------------------------------------------------------------------
+À propos de l’offre d’emploi
+Vos missions
+Pour renforcer notre pôle développement en croissance constante, nous recherchons un développeur full stack confirmé avec une appétence pour le DevOps qui aura comme missions principales :
+- Développer et documenter les évolutions définies ;
+- Participer à la rédaction fonctionnelle technique ;
+- Assurer la maintenance du service en corrigeant les bugs relevés ;
+- Prendre en considération la qualité et les échéances projets ;
+- Participer au Maintien en Conditions Opérationnelles et à l’amélioration de nos différentes plateformes et solutions ((clouds publics AWS/OVH/Clouds privés) ;
+- Maintenir et mettre à jour les CI/CD (CircleCI) ;
+- Effectuer une veille technologique permanente.
+Les missions peuvent évoluer en fonction des besoins de l'entreprise.
+Notre environnement technique
+- Angular, NestJS, Node.js
+- Flutter, Dart
+- PostgreSQL, PostGIS, Elastic Search, MongoDB
+- Docker, AWS, Terraform
+- CircleCI, GitLab CI
+Et si c’était vous ?
+- Vous justifiez d’une expérience de 5 ans minimum en tant que développeur ;
+- Vous avez une première expérience de gestion d’infrastructures techniques type AWS ;
+- Vous avez le sens du travail en équipe ;
+- Vous êtes familier.e avec les aspects build de notre environnement de développement (JS) ;
+- Vous êtes rigoureux.se dans la qualité de votre travail ;
+- Vous êtes sensibilisé.e aux démarches d’amélioration continue ;
+- Vous êtes passionné par le développement et vous avez le goût de transmettre vos connaissances.
+Pourquoi nous choisir ?
+En tant que spécialiste SIG, Dotic édite des solutions digitales cartographiques destinées à la collecte, au contrôle qualité, à la visualisation et à l’analyse des données d’infrastructures de distribution.
+Tout en conservant sa capacité de développement sur-mesure et ses expertises en traitement de données/FME ou SIG. Dotic propose aujourd’hui trois solutions SaaS : ConnectServices, pour le pilotage et la visualisation des infrastructures, ConnectField pour le relevé d’information sur le terrain, ConnectControl pour le contrôle qualité des données. Expert de la gestion des données sur le secteur FttH depuis plus de 16 ans, Dotic a été un pionnier dans le développement de solutions digitales au service de la qualité des données.
+Pour renforcer notre équipe, nous recherchons un développeur ayant des connaissances sur les réseaux de télécommunications afin d’intervenir sur des projets d'infrastructures numériques et de faire évoluer nos solutions, tel que : https://www.connect-control.com/
+Vous hésitez encore ?
+Chez DOTIC, nous accordons également une grande importance à l’épanouissement de nos collaborateurs et nous nous engageons à les soutenir dans leur développement professionnel. Nous offrons des opportunités de formation continue, des programmes de développement des compétences et un environnement propice à l'apprentissage. Nous encourageons nos employés à explorer de nouvelles compétences et à élargir leurs horizons, tout en ayant la possibilité d'orienter leur parcours professionnel au sein de l'entreprise en fonction de leurs aspirations et de leur croissance personnelle.
+Rémunération et avantages
+- Rémunération : à partir de 37 000€/an
+- Mutuelle d’entreprise prise en charge à 100 % par l’employeur
+- Ticket restaurant de 10 €/jour pris en charge à 50 % par l’employeur
+- Participation aux frais de transports à hauteur de 50 % ou forfait à mobilité durable à hauteur de 250€ /an pour une année complète
+- Plan de rémunération variable et bonus (valeurs d’entreprise, fidélité…)
+- 6 jours de RTT à l’année
+- Télétravail hybride à hauteur de 2 jours par semaine
+Les étapes pour nous rejoindre
+1. Indiquez-nous votre intérêt pour notre offre
+2. Nous vous contactons pour planifier un entretien avec l’équipe développement
+3. Vous rencontrez la direction et les ressources humaines
+4. Bienvenue chez DOTIC !
+--------------------------------------------------------------------------------------------------------------
+
+2. Offre de cuisinier 
+
+À propos de l’offre d’emploi
+Description de l'entreprise
+
+Rejoignez l'équipe Les Jardins de Caudéran !
+
+Notre but ? Nous mettons les résidents au cœur de nos vies car ils ont l’expérience, laconnaissanceet sont ainsi une source d’inspiration auprès de laquelle nous continuons d’apprendre.
+
+Nous lesrespectonset lesconsidéronsen portant une attention particulière à leurqualité de vie. Et c’est vous qui leur donnez les moyens de se réaliser quotidiennement à vos côtés : s’émerveiller, découvrir, entreprendre…
+
+Choisir notreétablissement, c’est rejoindre laCommunauté Colisée: des lieux de vie qui sont pleinement intégrés dans la société, ouverts sur l’extérieur et en harmonie avec le territoire.
+
+Description du poste
+
+Votre quotidien chez nous :
+
+Préparer des repas adaptés en fonction des régimes et capacités des résidents
+Contrôler la qualité des produits et de la finition des plats
+Réceptionner les livraisons
+Réaliser l'entretien de votre cuisine en respectant le (Plan de Maîtrise Sanitaire)
+Faire plaisir, en œuvrant pour le bien-être des résidents
+
+Qualifications
+
+Votre profil :
+
+Vous êtes titulaire du CAP cuisine et avez une première expérience en collectivité. Sous l'autorité du Chef de Cuisine, vous mettez vos compétences en cuisine et en pâtisserie au service des résidents de la structure. Vous valorisez votre savoir-faire et technique culinaire en vous adaptant aux besoins spécifiques des personnes âgées.
+
+Votre passion de service est un atout certain pour ce poste. Les normes sont maîtrisées et prises en compte dans l'élaboration des menus avec le Chef de Cuisine.
+
+Plus qu'un métier, une vocation, soyez acteur du bien-être de nos aînés.
+
+Informations supplémentaires
+-----------------------------------------------------------------------------------------------------------------
+
+3. Vendeur : 
+
+
+Chez Boulanger, nous favorisons la même chance pour tous, un même regard pour chacun !C’est avant tout la personnalité qui compte, alors si vous pensez que ce poste est fait pour vous, il ne reste plus qu'à postuler ! #SiBienEnsembleProfil :Comment briller sur ce poste :- La relation client et le sens commercial vous font vibrer !- L’ouverture d’esprit, l’écoute et l’aisance relationnelle sont des qualités qui vous porteront vers le haut.- Votre atout pour ce poste sera tant votre côté accrocheur et persuasif que votre côté sympathique !- Enfin, vous avez un attrait pour les produits multimédia et/ou électroménager.Mission :Nouvelle opportunité destinée à toutes les personnes qui aiment se surpasser et relever les challenges !#Sourire #Réactivité #ConseilVous avez un esprit challenger et le contact avec les clients ne vous fait pas peur ?Voici ce que nous vous proposons !Au sein du magasin, vous participerez à la satisfaction quotidienne de nos clients par la qualité de votre relation et par vos conseils d’usage !Vous serez bien sûr formé(e) et accompagné(e) tout au long de votre parcours d’intégration, alors soyez rassuré et soyez vous-même !Mission :Pour réussir cette mission, vous aurez pour rôle de conseiller et guider les clients vers LA solution la plus complète possible. Pour cela, vous veillerez à :- ASSURER LA SATISFACTION DURABLE POUR CHAQUE CLIENT GRÂCE À UN SUIVI DE LEURS VENTES;- AFIN D’EXPLIQUER AU MIEUX LES NOUVELLES TECHNOLOGIES À NOS CLIENTS, VOUS FEREZ DES DÉMOS POUR MONTRER ET DÉMONTRER L’USAGE D’UN PRODUIT;- ÊTRE RESPONSABLE DE LA BONNE TENUE DES RAYONS : DE L’ÉTIQUETAGE À LA VISIBILITÉ DES PRODUITS;
