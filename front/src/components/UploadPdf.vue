@@ -201,6 +201,9 @@ async sendMessage() {
     this.messages.push({ sender: "bot", text: "❌ Erreur IA" });
   } finally {
     this.userMessage = "";
+
+    this.$nextTick(() => {
+    });
     this.loading = false;
   }
 }
@@ -320,7 +323,7 @@ html, body {
 
 .main-container {
   flex: 1;
-  padding: 35px;
+      padding: 35px;
   display: flex;
   gap: 30px;
   justify-content: center;
