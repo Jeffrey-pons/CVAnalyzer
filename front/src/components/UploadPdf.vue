@@ -260,6 +260,7 @@ getPromptFromSettings(type) {
 .main-layout {
   display: flex;
   flex: 1;
+  height: auto;
 }
 html, body {
   height: 100%; 
@@ -276,7 +277,6 @@ html, body {
   overflow-y: auto; 
   display: flex;
   flex-direction: column; 
-  height: 1000px;
 }
 
 .sidebar-title {
@@ -320,7 +320,7 @@ html, body {
 
 .main-container {
   flex: 1;
-  padding: 20px;
+  padding: 35px;
   display: flex;
   gap: 30px;
   justify-content: center;
@@ -333,7 +333,7 @@ html, body {
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   text-align: center;
-  height: auto;
+  min-height: 300px;
 }
 .upload-container img {
   max-width: 100px;
